@@ -42,12 +42,12 @@
 				
 	, removeNonStrings = function(arr)
 				{	// Remove non-strings and empty strings from an array.
-					return $.isArray(arr) ? $.grep(arr, function(n, i) { return !isVoid(n); }) : false;
+					return $.isArray(arr) ? $.grep(arr, function(n,i) { return !isVoid(n); }) : false;
 				}
 
 	, removeNonNumeric = function(arr)
 				{	// Remove array values that cannot be converted to integers.
-					return $.isArray(arr) ? $.grep(arr, function(n, i) { return !isNaN(parseInt(n, 10)); }) : false;
+					return $.isArray(arr) ? $.grep(arr, function(n,i) { return !isNaN(parseInt(n, 10)); }) : false;
 				}
 					
 	, stripFlags = function (str)
