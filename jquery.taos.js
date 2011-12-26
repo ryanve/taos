@@ -57,7 +57,7 @@
 				}
 				
 	, getFlags = function (str)
-				{   // Get all the flags in an array or return false if none.
+				{   // Get all the flags in an array, or return false if none.
 				    // For example 'body!html!anything' becomes ['body', 'html']
 					
 					// First check if str contains any ! marks.
