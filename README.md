@@ -1,8 +1,44 @@
 TAOS (**T**oggle **A**reas **O**r **S**tyles) is a jQuery plugin that allows designers easily setup efficient toggles and style switchers via HTML5 data attributes.
 
+## Areas 
+
+Area toggles are activated by adding a `data-taos-area` attribute to `<a>` elements (a.k.a. switches). The value of the attribute should be the selector for the element you want to toggle. Multiple elements can be cycled by separating selectors with commas. Flags for duration (in milliseconds) and easing method can be added. In basic jQuery the two easing methods are `swing` (default) and `linear`. If using jQuery UI, then [these easing methods](http://jqueryui.com/demos/effect/easing.html) are also available. (If using a custom jQuery UI build, it must include the effects package.)
+
+#### 1-way (show/hide)
+
+```html
+<!-- Toggle visiblity of #content -->
+<a data-taos-area="#content">Show content</a>
+
+<!-- Toggle visiblity of #content with 3000ms transition -->
+<a data-taos-area="3000!#content">Show content</a>
+
+<!-- Toggle visiblity of #content with easing method from jQuery UI -->
+<a data-taos-area="easeInBounce!#content">Show content</a>
+
+<!-- Toggle visiblity of #content with linear easing method and 800ms transition -->
+<a data-taos-area="linear!800!#content">Show content</a>
+
+<!-- Toggle visiblity of all .details elems inside #content -->
+<a data-taos-area="#content .details">Show details</a>
+```
+
+#### Multiple (cycle shown elems)
+
+```html
+<!-- Cycle visiblity between #photo1, #photo2, and #photo3 -->
+<a data-taos-area="#photo1, #photo2, #photo3">Next photo</a>
+
+<!-- Cycle visiblity between figure img and figure figcaption with 300ms transition -->
+<a data-taos-area="300!figure img, figure figcaption">Show info</a>
+
+<!-- Cycle visiblity between .entry and .widget elems with linear easing and 300ms transition -->
+<a data-taos-area="linear!300! .entry, .widget">Show info</a>
+```
+
 ## Styles
 
-Style toggles are activated by adding a `data-taos-style` attribute to an `<a>` element (a.k.a. the switch). The values of the attribute should be the class(es) you want to toggle. If you just put one class, then it will simply toggle on and off. If you put more than one (separated by commas) then they will cycle. By default, the toggles affect the element they are placed on. But often you will want to affect another element. This is done by adding flags for the element(s) you want to target at the front of the attribute value. For example, to target the `<body>` tag, you would preceed the attribute with `body!`.
+Style toggles are activated by adding a `data-taos-style` attribute to `<a>` elements (a.k.a. switches). The values of the attribute should be the class(es) you want to toggle. If you just put one class, then it will simply toggle on and off. If you put more than one (separated by commas) then they will cycle. By default, the toggles affect the element they are placed on. But often you will want to affect another element. This is done by adding flags for the element(s) you want to target at the front of the attribute value. For example, to target the `<body>` tag, you would preceed the attribute with `body!`.
 
 #### 1-way (on/off)
 ```html
@@ -23,7 +59,7 @@ Style toggles are activated by adding a `data-taos-style` attribute to an `<a>` 
 <a data-taos-style="html!red heart">Toggle styles</a> 
 ````
 
-#### Multiple (cycle)
+#### Multiple (cycle classes)
 ```html
 
 <!-- Cycle between .dark and .light on the html tag -->
@@ -35,10 +71,6 @@ Style toggles are activated by adding a `data-taos-style` attribute to an `<a>` 
 <!-- Cycle between pairs of classes on the body tag -->
 <a data-taos-style="body!red heart,red diamond,black ace,black club">Toggle styles</a> 
 ````
-
-## Areas 
-
-Area toggles are activated by adding a `data-taos-area` attribute to an `<a>` element (a.k.a. the switch). The value of the attribute should be the selector for the element you want to toggle. Multiple elements can be cycled by separating selectors with commas. Flags for duration (in milliseconds) and easing method can be added. In basic jQuery the two easing methods are `swing` (default) and `linear`. If using jQuery UI, then you can also use the jQuery UI [easing methods](http://jqueryui.com/demos/effect/easing.html). (If using a custom jQuery UI build, include the effects package.)
 
 ## License
 
