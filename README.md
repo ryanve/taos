@@ -2,7 +2,7 @@ TAOS (**T**oggle **A**reas **O**r **S**tyles) is a jQuery plugin that allows des
 
 ## Styles
 
-Style toggles are activated by adding a `data-taos-style` attribute to a `<a>` element (a.k.a. the switch). The values of the attribute should be the class(es) you want to toggle. If you just put one class, then it will simply toggle on and off. If you put more than one (separated by commas) then they will cycle. By default, the toggles affect the element they are placed on. But often you will want to affect another element. This is done by adding flags for the element(s) you want to target at the front of the attribute value. For example, to target the `<body>` tag, you would preceed the attribute with `body!`.
+Style toggles are activated by adding a `data-taos-style` attribute to an `<a>` element (a.k.a. the switch). The values of the attribute should be the class(es) you want to toggle. If you just put one class, then it will simply toggle on and off. If you put more than one (separated by commas) then they will cycle. By default, the toggles affect the element they are placed on. But often you will want to affect another element. This is done by adding flags for the element(s) you want to target at the front of the attribute value. For example, to target the `<body>` tag, you would preceed the attribute with `body!`.
 
 #### 1-way (on/off)
 ```html
@@ -36,10 +36,13 @@ Style toggles are activated by adding a `data-taos-style` attribute to a `<a>` e
 <a data-taos-style="body!red heart,red diamond,black ace,black club">Toggle styles</a> 
 ````
 
+## Areas 
+
+Area toggles are activated by adding a `data-taos-area` attribute to an `<a>` element (a.k.a. the switch). The value of the attribute should be the selector for the element you want to toggle. Multiple elements can be cycled by separating selectors with commas. Flags for duration (in milliseconds) and easing method can be added. In basic jQuery the two easing methods are `swing` (default) and `linear`. If using jQuery UI, then you can also use the jQuery UI [easing methods](http://jqueryui.com/demos/effect/easing.html). (If using a custom jQuery UI build, include the effects package.)
 
 ## License
 
-### TAOS (jquery.taos) is available under the [MIT license](http://en.wikipedia.org/wiki/MIT_License)
+### TAOS is available under the [MIT license](http://en.wikipedia.org/wiki/MIT_License)
 
 Copyright (C) 2011 by [Ryan Van Etten](https://github.com/ryanve)
 
