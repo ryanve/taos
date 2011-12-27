@@ -2,6 +2,7 @@
  * TAOS (Toggle Areas Or Styles) jQuery Plugin
  * @author Ryan Van Etten/2011
  * @license MIT
+ * @link http://github.com/ryanve/jquery.taos
  * @version 0.1.0
  * @requires jQuery 1.7+
  */
