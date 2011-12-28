@@ -1,8 +1,8 @@
-TAOS (**T**oggle **A**reas **O**r **S**tyles) is a jQuery plugin that allows designers easily setup efficient toggles and style switchers via HTML5 data attributes.
+TAOS (**T**oggle **A**reas **O**r **S**tyles) is a jQuery plugin that helps designers easily setup efficient toggles and style switchers via HTML5 data attributes. I wrote the plugin because I wanted insanely simple but flexible ways to make style switchers and element toggles without rewriting JavaScript each time.
 
 ## Areas 
 
-Area toggles are activated by adding a `data-taos-area` attribute to `<a>` elements (a.k.a. switches). The value of the attribute should be the selector for the element you want to toggle. Multiple elements can be cycled by separating selectors with commas. Flags for duration (in milliseconds) and easing method can be added. In basic jQuery the two easing methods are `swing` (default) and `linear`. If using jQuery UI, then [these easing methods](http://jqueryui.com/demos/effect/easing.html) are also available. (If using a custom jQuery UI build, it must include the effects package.)
+An **area** toggle is activated by adding the `data-taos-area` attribute to the `<a>` link that should be its control. The value of the attribute should be the selector for the element you want to toggle. Multiple elements can be cycled by separating selectors with commas. Flags for duration (in milliseconds) and easing method can be added. In basic jQuery the two easing methods are `swing` (default) and `linear`. If using jQuery UI, then [these easing methods](http://jqueryui.com/demos/effect/easing.html) are also available. (If using a custom jQuery UI build, it must include the effects package.)
 
 #### 1-way (show/hide)
 
@@ -38,7 +38,7 @@ Area toggles are activated by adding a `data-taos-area` attribute to `<a>` eleme
 
 ## Styles
 
-Style toggles are activated by adding a `data-taos-style` attribute to `<a>` elements (a.k.a. switches). The values of the attribute should be the class(es) you want to toggle. If you just put one class, then it will simply toggle on and off. If you put more than one (separated by commas) then they will cycle. By default, the toggles affect the element they are placed on. But often you will want to affect another element. This is done by adding flags for the element(s) you want to target at the front of the attribute value. For example, to target the `<body>` tag, you would preceed the attribute with `body!`.
+A **style** toggle is activated by adding the `data-taos-style` attribute to the `<a>` link that should be its control. The values of the attribute should be the class(es) you want to toggle. If you just put one class, then it will simply toggle on and off. If you put more than one (separated by commas) then they will cycle. By default, the toggles affect the element they are placed on. But often you will want to affect another element. This is done by adding flags for the element(s) you want to target at the front of the attribute value. For example, to target the `<body>` tag, you would preceed the attribute with `body!`.
 
 #### 1-way (on/off)
 ```html
@@ -52,7 +52,7 @@ Style toggles are activated by adding a `data-taos-style` attribute to `<a>` ele
 <!-- Toggle .dark on/off the #main element -->
 <a data-taos-style="#main!dark">Toggle styles</a> 
 
-<!-- Toggle .dark on/off all `.a` and `.b` elems -->
+<!-- Toggle .dark on/off all .a and .b elems -->
 <a data-taos-style=".a!.b!dark">Toggle styles</a> 
 
 <!-- Toggle the *both* .red and .heart on/off the html tag -->
