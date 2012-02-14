@@ -23,8 +23,8 @@
                 , selector : $('[data-taos-style]')
                 }
             }
- 		
-	  // Use native isArray when available
+	
+      // Use native isArray when available
     , isArray = Array.isArray || $.isArray
 	  
     , toSSV = function (maybeArr)
@@ -90,7 +90,7 @@
                 
     , getEasing = function (arr)
                 {    // stackoverflow.com/questions/8619155/check-if-jquery-ui-easing-methods-are-available
-                    var arr = removeNonStrings(arr);
+                    arr = removeNonStrings(arr);
                     return 'linear' === arr[0] || ($.easing && $.easing.hasOwnProperty(arr[0])) ? arr[0] : false;
                 }
 
@@ -99,9 +99,8 @@
 
         cycleClass : function (removes, adds)
                 {
-                    var adds = toSSV(adds)
-                      , removes = toSSV(removes)
-                    ;
+                    adds = toSSV(adds);
+                    removes = toSSV(removes);
                     return $(this).removeClass(removes).addClass(adds);
                 }
         ,
@@ -120,7 +119,7 @@
                               , elems = flags ? $(flags.join()) : $this   // Select flags or self.
                             ;
                     
-                            $this.click(function () {
+                            $this.click(function (nextClass) {
                      
                                 if ( 1 === classesCount ) {
                                     elems.toggleClass(classes[0]);
@@ -128,19 +127,19 @@
                     
                                 else if ( 1 < classesCount ) {
                                     if ( 2 === classesCount ) {
-                                        var nextClass = elems.hasClass(classes[0]) ? classes[1] : classes[0];
+                                        nextClass = elems.hasClass(classes[0]) ? classes[1] : classes[0];
                                     }
                                     else {
-                                        var i = -1
-                                          , nextClass = undefined
-                                        ;
+                                        var i = -1;
+                                        nextClass = undefined;
+
                                         while( !nextClass && i++ < classesCount ) {
                                             if ( elems.hasClass(classes[i]) )
                                             {
-                                                var nextClass = classes[i+1];
+                                                nextClass = classes[i+1];
                                             }
                                         }
-                                        var nextClass = nextClass || classes[0];
+                                        nextClass = nextClass || classes[0];
                                     }
                                     elems.taos('cycleClass', classes, nextClass);
                                 }
@@ -168,7 +167,7 @@
                               , easing = getEasing(flags)
                             ;
                     
-                            $this.click(function () {
+                            $this.click(function (nextShow) {
                      
                                 if ( 1 === areaCount ) {
                                     // If there's only one, then it will
@@ -179,19 +178,19 @@
                     
                                 else if ( 1 < areaCount ) {
                                     if ( 2 === areaCount ) {
-                                        var nextShow = $(areas[0]).is(':visible') ? $(areas[1]) : $(areas[0]);
+                                        nextShow = $(areas[0]).is(':visible') ? $(areas[1]) : $(areas[0]);
                                     }
                                     else {
-                                        var i = -1
-                                          , nextShow = undefined
-                                        ;
+                                        var i = -1;
+                                        nextShow = undefined;
+
                                         while( !nextShow && i++ < areaCount ) {
                                             if ( $(areas[i]).is(':visible') )
                                             {
-                                                var nextShow = $(areas[i+1]);
+                                                nextShow = $(areas[i+1]);
                                             }
                                         }
-                                        var nextShow = nextShow || $(areas[0]);
+                                        nextShow = nextShow || $(areas[0]);
                                     }
                                     selectAll.hide();
                                     nextShow.show();
