@@ -3,7 +3,7 @@
  * @author Ryan Van Etten/2011
  * @license MIT
  * @link http://github.com/ryanve/jquery.taos
- * @version 0.1.0
+ * @version 0.1.1
  * @requires jQuery 1.7+
  */
  
@@ -23,9 +23,13 @@
                 , selector : $('[data-taos-style]')
                 }
             }
+ 		
+	  // Use native isArray when available
+    , isArray = Array.isArray || $.isArray
+	  
     , toSSV = function (maybeArr)
                 {   // If array, join with spaces and return. Otherwise return as is.
-                    return $.isArray(maybeArr) ? maybeArr.join(' ') : maybeArr;
+                    return isArray(maybeArr) ? maybeArr.join(' ') : maybeArr;
                 }
     
     , isVoid = function (maybeStr)
@@ -43,12 +47,12 @@
                 
     , removeNonStrings = function(arr)
                 {    // Remove non-strings and empty strings from an array.
-                    return $.isArray(arr) ? $.grep(arr, function(n,i) { return !isVoid(n); }) : false;
+                    return isArray(arr) ? $.grep(arr, function(n,i) { return !isVoid(n); }) : false;
                 }
 
     , removeNonNumeric = function(arr)
                 {    // Remove array values that cannot be converted to integers.
-                    return $.isArray(arr) ? $.grep(arr, function(n,i) { return !isNaN(parseInt(n, 10)); }) : false;
+                    return isArray(arr) ? $.grep(arr, function(n,i) { return !isNaN(parseInt(n, 10)); }) : false;
                 }
                     
     , stripFlags = function (str)
@@ -81,7 +85,7 @@
     , getDuration = function (arr)
                 {
                     // Return the first integer from array or 0 if none.
-                    return $.isArray(arr) ? parseInt(removeNonNumeric(arr)[0], 10) || 0 : 0;
+                    return isArray(arr) ? parseInt(removeNonNumeric(arr)[0], 10) || 0 : 0;
                 }
                 
     , getEasing = function (arr)
