@@ -1,13 +1,13 @@
 /*!
  * TAOS (Toggle Areas Or Styles) jQuery Plugin
- * @author Ryan Van Etten/2011
- * @license MIT
- * @link http://github.com/ryanve/taos
- * @version 0.1.1
- * @requires jQuery 1.7+
+ * @author      Ryan Van Etten/2011
+ * @license     MIT
+ * @link        http://github.com/ryanve/taos
+ * @version     0.2.0
+ * @requires    jQuery 1.7+
  */
- 
-;(function($, undefined) {
+
+!function($, doc, undef) {
 
   "use strict"; // invoke strict mode
 
@@ -23,10 +23,10 @@
                 , selector : $('[data-taos-style]')
                 }
             }
-	
+    
       // Use native isArray when available
     , isArray = Array.isArray || $.isArray
-	  
+      
     , toSSV = function (maybeArr)
                 {   // If array, join with spaces and return. Otherwise return as is.
                     return isArray(maybeArr) ? maybeArr.join(' ') : maybeArr;
@@ -40,7 +40,7 @@
     , hasData = function (needle, haystack)
                 {    // Return true if attr contains data.
                     if ( !needle || !haystack ) {
-                        return undefined;
+                        return undef;
                     }
                     return !isVoid(haystack.data(needle)); // boolean
                 }
@@ -131,7 +131,7 @@
                                     }
                                     else {
                                         var i = -1;
-                                        nextClass = undefined;
+                                        nextClass = undef;
 
                                         while( !nextClass && i++ < classesCount ) {
                                             if ( elems.hasClass(classes[i]) )
@@ -182,7 +182,7 @@
                                     }
                                     else {
                                         var i = -1;
-                                        nextShow = undefined;
+                                        nextShow = undef;
 
                                         while( !nextShow && i++ < areaCount ) {
                                             if ( $(areas[i]).is(':visible') )
@@ -198,7 +198,13 @@
                             });//click
                         }
                     });//each
-
+                    
+                    // Remove .no-taos class from html tag (if it's there) and add .taos (for styling purposes)
+                    $(doc).ready(function(docElem){
+                        docElem = doc.documentElement;
+                        docElem.className = docElem.className.replace(/(^|\s)(no-)?taos(\s|$)/, '$1$3') + ' taos ';
+                    });
+                    
                 }//init
         }//methods
     ;//var
@@ -220,4 +226,4 @@
     
     $().taos(); // call init
     
-}(jQuery));
+}(window.jQuery || window.ender, document);
