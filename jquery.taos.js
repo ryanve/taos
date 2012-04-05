@@ -3,7 +3,7 @@
  * @author      Ryan Van Etten/2011
  * @license     MIT
  * @link        http://github.com/ryanve/taos
- * @version     0.3.0
+ * @version     0.3.1
  * @requires    jQuery 1.7+
  */
 
@@ -107,11 +107,11 @@
                     if (1 === areaCount) {
                         // If there's only one, then it will be the only one in 
                         // selectAll (which has already cached, so use it). If 
-                        // there's an easing value, .then stop() it too so that if 
+                        // there's a duration, .then stop() it too so that if 
                         // a user clicks twice in a row, then the easing from the 
                         // first click is truncated if it hasn't already finished.
                         // Save the stop fn to the local i for scope optimization.
-                        if (easing && selectAll.stop) { 
+                        if (duration && selectAll.stop) { 
                             selectAll.stop(false, true);
                         }
                         selectAll.toggle(duration, easing);
