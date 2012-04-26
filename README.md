@@ -2,7 +2,7 @@ TAOS (**T**oggle **A**reas **O**r **S**tyles) is a jQuery plugin that helps desi
 
 ## Areas 
 
-An **area** toggle is activated by adding the `data-taos-area` attribute to the `<a>` link that should be its control. The value of the attribute should be the selector for the element you want to toggle. Multiple elements can be cycled by separating selectors with commas. Flags for duration (in milliseconds) and easing method can be added. In basic jQuery the two easing methods are `swing` (default) and `linear`. If using jQuery UI, then [these easing methods](http://jqueryui.com/demos/effect/easing.html) are also available. (If using a custom jQuery UI build, it must include the effects package.)
+An **area** toggle is activated by adding the `data-taos-area` attribute to the `<a>` link that should be its control. The value of the attribute should be the selector for the element you want to toggle. Multiple elements can be cycled by separating selectors with pipes `|`. Flags for duration (in milliseconds) and easing method can be added. In basic jQuery the two easing methods are `swing` (default) and `linear`. If using jQuery UI, then [these easing methods](http://jqueryui.com/demos/effect/easing.html) are also available. (If using a custom jQuery UI build, it must include the effects package.)
 
 #### 1-way (show/hide)
 
@@ -35,8 +35,8 @@ Use the pipe `|` to delimit areas:
 <!-- Cycle visiblity between figure img and figure figcaption with 300ms transition -->
 <a data-taos-area="figure img | figure figcaption !300">Show info</a>
 
-<!-- Cycle visiblity between .entry and .widget elems with swing easing and 300ms transition -->
-<a data-taos-area=".entry | .widget !swing !300">Show info</a>
+<!-- Cycle visiblity between .entry and .widget elems with linear easing and 300ms transition -->
+<a data-taos-area=".entry | .widget !linear !300">Show info</a>
 ```
 
 ## Styles
