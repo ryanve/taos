@@ -1,8 +1,8 @@
-TAOS (**T**oggle **A**reas **O**r **S**tyles) is a jQuery plugin that helps designers easily setup efficient toggles and style switchers via HTML5 data attributes. I wrote the plugin because I wanted insanely simple but flexible ways to make style switchers and element toggles without rewriting JavaScript each time.
+TAOS (**T**oggle **A**reas **O**r **S**tyles) is a [jQuery](http://jquery.com) plugin that helps designers easily setup efficient toggles and style switchers via HTML5 data attributes. I wrote the plugin because I wanted insanely simple but flexible ways to make style switchers and element toggles without rewriting JavaScript each time. It is compatible with the [Jeesh](ender.no.de/#jeesh).
 
 ## Areas 
 
-An **area** toggle is activated by adding the `data-taos-area` attribute to the `<a>` link that should be its control. The value of the attribute should be the selector for the element you want to toggle. Multiple elements can be cycled by separating selectors with pipes `|`. Flags for duration (in milliseconds) and easing method can be added. In basic jQuery the two easing methods are `swing` (default) and `linear`. If using jQuery UI, then [these easing methods](http://jqueryui.com/demos/effect/easing.html) are also available. (If using a custom jQuery UI build, it must include the effects package.)
+An **area** toggle is activated by adding the `data-taos-area` attribute to the element that should be its control. The value of the attribute should be the selector for the element you want to toggle. Multiple elements can be cycled by separating selectors with pipes `|`. Flags for duration (in milliseconds) and easing method can be added. In basic jQuery the two easing methods are `swing` (default) and `linear`. If using jQuery UI's effects package then [these easing methods](http://jqueryui.com/demos/effect/easing.html) are also available.
 
 #### 1-way (show/hide)
 
@@ -41,7 +41,7 @@ Use the pipe `|` to delimit areas:
 
 ## Styles
 
-A **style** toggle is activated by adding the `data-taos-style` attribute to the `<a>` link that should be its control. The format for attribute is `selector ! class(es)` where the selector represents the element(s) whose class you want to toggle. If the selector is omitted, the toggle will affect the element on which it is placed. If you just put one class, then it will simply toggle on and off. Delimit with spaces to toggle multiple classes at once. Delimit with pipes `|` to cycle between classes. Examples:
+A **style** toggle is activated by adding the `data-taos-style` attribute to the element that should be its control. The format for attribute is `selector ! class(es)` where the selector represents the element(s) whose class you want to toggle. If the selector is omitted, the toggle will affect the element on which it is placed. If you just put one class, then it will simply toggle on and off. Delimit with spaces to toggle multiple classes at once. Delimit with pipes `|` to cycle between classes. Examples:
 
 #### 1-way (on/off)
 ```html
