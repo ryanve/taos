@@ -3,7 +3,7 @@
  * @author      Ryan Van Etten (c) 2011-2012
  * @license     MIT
  * @link        http://github.com/ryanve/taos
- * @version     0.5.0
+ * @version     0.5.1
  * @requires    jQuery 1.7+
  *              or Jeesh (ender.no.de/#jeesh)
  *              or Zepto 0.8+ (zeptojs.com)
@@ -71,8 +71,9 @@
     }
 
     /**
-     * Trim strings in an array or object and return a new compact array.
-     * @param {Object|Array|*}   ob
+     * Trim strings from an array and return a new compact array.
+     * @param  {Object|Array|*}   ob
+     * @return {Array}
      */
     function prune(ob) {
         var l, i = 0, v, ret = [];
@@ -172,20 +173,20 @@
         // START area
         taos('area')['each'](function() {
 
-            var n, i = 0, parts, areas, areaCount, $elems
+            var parts = getData(this, 'area')
+              , n, i = 0, areas, areaCount, $elems
               , hasFx, easing = false, duration = 0, halfDuration = 0
-              , $this = $(this)
-              , dataRaw = getData(this, 'area');
+              , $this = $(this);
 
-            if ( !dataRaw ) { return; }
-            parts = prune(dataRaw.split(exclamations));
+            if ( !parts ) { return; }
+            parts = prune(parts.split(exclamations)); // array
             if ( !parts.length ) { return; }
             (n = parts[0]) && (isFinite(n) || easingTypeExists(n)) && parts.reverse(); // old syntax
             areas = parts.shift().split(pipes);
             areaCount = areas.length;
             if ( !areaCount ) { return; }
             
-            while (n = parts[i++]) {// can do the loop like this b/c `parts` was made via `.split`
+            while (n = parts[i++]) {// can be done like this b/c `parts` is compact and all strings
                 if ( n >= 0 ) { halfDuration = (duration = n >> 0)/2 >> 0; } // convert to integers
                 else { easing = easing || (easingTypeExists(n) && n); }
             }/* Or we could do:
@@ -240,13 +241,14 @@
         // START style
         taos('style')['each'](function() {
 
-            var dataRaw = getData(this, 'style')
-              , $this = $(this)
-              , parts, classes, classesCount, $elems;
+            var parts = getData(this, 'style')
+              , classes, classesCount, $elems
+              , $this = $(this);
 
-            if ( !dataRaw ) { return; }
-            parts = prune(dataRaw.split(exclamations));
-            classes = parts.length ? parts.pop().split(commasOrPipes) : [];
+            if ( !parts ) { return; }
+            parts = prune(parts.split(exclamations));
+            if ( !parts.length ) { return; }
+            classes = prune(parts.pop().split(commasOrPipes));
             classesCount = classes.length;
             if ( !classesCount ) { return; }
 
@@ -289,13 +291,13 @@
         // START attr
         taos('attr')['each'](function() {
 
-            var n, parts, p0, $p0, partsLen, $elems, elemsLen
+            var parts = getData(this, 'attr')
+              , n, p0, $p0, partsLen, $elems, elemsLen
               , attrs, nthPair, count, attrPairs = {}
-              , $this = $(this)
-              , dataRaw = getData(this, 'attr');
+              , $this = $(this);
 
-            if ( !dataRaw ) { return; }
-            parts = prune(dataRaw.split(exclamations));
+            if ( !parts ) { return; }
+            parts = prune(parts.split(exclamations));
             partsLen = parts.length;
             if ( !partsLen ) { return; }
             p0 = parts[0];
