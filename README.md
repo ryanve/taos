@@ -1,4 +1,9 @@
-TAOS (**T**oggle **A**reas **O**r **S**tyles) is a [jQuery](http://jquery.com) plugin that helps designers easily setup efficient toggles and style switchers via HTML5 data attributes. I wrote the plugin because I wanted insanely simple but flexible ways to make style switchers and element toggles without rewriting JavaScript each time. It is compatible with the [Jeesh](http://ender.no.de/#jeesh).
+TAOS (**T**oggle **A**reas **O**r **S**tyles) is a [jQuery](http://jquery.com) (or [ender](http://ender.no.de/#jeesh)) plugin that helps designers easily setup efficient toggles and style switchers via HTML5 data attributes. I wrote the plugin because I wanted insanely simple but flexible ways to make style switchers and element toggles without rewriting JavaScript each time.
+
+```html
+<script src="jquery.js"></script>
+<script src="taos.js"></script>
+```
 
 ## Styles
 
