@@ -1,4 +1,4 @@
-**TAOS** (toggle areas or styles) is a [jQuery](http://jquery.com) (or [ender](http://ender.no.de/#jeesh)) plugin that helps designers easily setup efficient toggles and style switchers via HTML5 data attributes. I wrote the plugin because I wanted insanely simple but flexible ways to make style switchers and element toggles without rewriting JavaScript each time.
+**[TAOS](https://github.com/ryanve/taos)** (toggle areas or styles) is a [jQuery](http://jquery.com) (or [ender](http://ender.no.de/#jeesh)) plugin that helps designers easily setup efficient toggles and style switchers via HTML5 data attributes. I wrote the plugin because I wanted insanely simple but flexible ways to make style switchers and element toggles without rewriting JavaScript each time.
 
 ```html
 <script src="jquery.js"></script>
