@@ -1,5 +1,41 @@
 TAOS (**T**oggle **A**reas **O**r **S**tyles) is a [jQuery](http://jquery.com) plugin that helps designers easily setup efficient toggles and style switchers via HTML5 data attributes. I wrote the plugin because I wanted insanely simple but flexible ways to make style switchers and element toggles without rewriting JavaScript each time. It is compatible with the [Jeesh](http://ender.no.de/#jeesh).
 
+## Styles
+
+A **style** toggle is activated by adding the `data-taos-style` attribute to the element that should be its control. The format for attribute is `selector ! class(es)` where the selector represents the element(s) whose class you want to toggle. If the selector is omitted, the toggle will affect the element on which it is placed. If you just put one class, then it will simply toggle on and off. Delimit with spaces to toggle multiple classes at once. Delimit with pipes `|` to cycle between classes. Examples:
+
+#### 1-way (on/off)
+```html
+
+<!-- Toggle .dark on/off the link itself. -->
+<a data-taos-style="dark">Toggle styles</a> 
+
+<!-- Toggle .dark on/off the html tag -->
+<a data-taos-style="html ! dark">Toggle styles</a> 
+
+<!-- Toggle .dark on/off the #main element -->
+<a data-taos-style="#main ! dark">Toggle styles</a> 
+
+<!-- Toggle .dark on/off all .a and .b elems -->
+<a data-taos-style=".a, .b ! dark">Toggle styles</a> 
+
+<!-- Toggle *both* .red and .heart on/off the html tag -->
+<a data-taos-style="html ! red heart">Toggle styles</a> 
+````
+
+#### Multiple (cycle classes)
+```html
+
+<!-- Cycle between .dark and .light on the html tag -->
+<a data-taos-style="html ! dark | light">Toggle styles</a> 
+
+<!-- Cycle between .dark, .light, .retro, and .neon on #main -->
+<a data-taos-style="#main ! dark | light | retro | neon">Toggle styles</a> 
+
+<!-- Cycle between pairs of classes on the body tag -->
+<a data-taos-style="body ! red heart | red diamond | black ace | black club">Toggle styles</a> 
+````
+
 ## Areas 
 
 An **area** toggle is activated by adding the `data-taos-area` attribute to the element that should be its control. The value of the attribute should be the selector for the element you want to toggle. Multiple elements can be cycled by separating selectors with pipes `|`. Flags for duration (in milliseconds) and easing method can be added. In basic jQuery the two easing methods are `swing` (default) and `linear`. If using jQuery UI's effects package then [these easing methods](http://jqueryui.com/demos/effect/easing.html) are also available.
@@ -38,42 +74,6 @@ Use the pipe `|` to delimit areas:
 <!-- Cycle visiblity between .entry and .widget elems with linear easing and 300ms transition -->
 <a data-taos-area=".entry | .widget !linear !300">Show info</a>
 ```
-
-## Styles
-
-A **style** toggle is activated by adding the `data-taos-style` attribute to the element that should be its control. The format for attribute is `selector ! class(es)` where the selector represents the element(s) whose class you want to toggle. If the selector is omitted, the toggle will affect the element on which it is placed. If you just put one class, then it will simply toggle on and off. Delimit with spaces to toggle multiple classes at once. Delimit with pipes `|` to cycle between classes. Examples:
-
-#### 1-way (on/off)
-```html
-
-<!-- Toggle .dark on/off the link itself. -->
-<a data-taos-style="dark">Toggle styles</a> 
-
-<!-- Toggle .dark on/off the html tag -->
-<a data-taos-style="html ! dark">Toggle styles</a> 
-
-<!-- Toggle .dark on/off the #main element -->
-<a data-taos-style="#main ! dark">Toggle styles</a> 
-
-<!-- Toggle .dark on/off all .a and .b elems -->
-<a data-taos-style=".a, .b ! dark">Toggle styles</a> 
-
-<!-- Toggle *both* .red and .heart on/off the html tag -->
-<a data-taos-style="html ! red heart">Toggle styles</a> 
-````
-
-#### Multiple (cycle classes)
-```html
-
-<!-- Cycle between .dark and .light on the html tag -->
-<a data-taos-style="html ! dark | light">Toggle styles</a> 
-
-<!-- Cycle between .dark, .light, .retro, and .neon on #main -->
-<a data-taos-style="#main ! dark | light | retro | neon">Toggle styles</a> 
-
-<!-- Cycle between pairs of classes on the body tag -->
-<a data-taos-style="body ! red heart | red diamond | black ace | black club">Toggle styles</a> 
-````
 
 ## License
 
